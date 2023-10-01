@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  php:
+    build:
+      context: ./docker
+      dockerfile: php.Dockerfile
+    hostname: php
+    entrypoint: 'sh /entrypoint.sh'
+    volumes:
+      - ./app:/usr/share/nginx/app
+      - ./docker/php.entrypoint.sh:/entrypoint.sh
+    healthcheck:
+      test: curl -f http://localhost:80 || kill 1
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
+    depends_on:
+      postgresql:
+        condition: service_healthy
+  nginx:
+    image: nginx:1.23.0-alpine
+    hostname: nginx
+    volumes:
+      - ./app:/usr/share/nginx/app
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 81:80
+    depends_on:
+      - php
+  postgresql:
+    image: postgres:13-alpine3.16
+    hostname: postgresql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+     - ./docker/pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: psql -U postgres -c '\q'
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres@bk.ru
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - 5050:80

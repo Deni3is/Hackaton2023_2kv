@@ -1,0 +1,182 @@
+<script src="/base/js/admingbr.js"></script>
+
+<input type="checkbox" id="navmenu-toggle" hidden>
+<nav class="navmenu">
+    <label for="navmenu-toggle" class="navmenu-toggle" onclick></label>
+    <ul>
+        <li><a href="" style="pointer-events: none; color: #888;font-size: 18pt;">Фонды и подразделения</a></li>
+        <li><a href="adminhistory">Статистика</a></li>
+        <li><a href="exitFromAccount">Выход</a></li>
+    </ul>
+</nav>
+<div class="row bgstylecolor">
+    <div class="col">
+        <div class="row" style="height: 100px;">
+            <div class="col" >
+                <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalAdd1" type="button" style="margin-top: 40px;margin-left: 150px;width: 130.5px;">Добавить фонд</button>
+                <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalAdd2" type="button" style="margin-top: 40px;margin-left: 150px;width: 130.5px;">Добавить компанию</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xxl-6">
+        <div class="row" style="height: 850px; margin-top:10px">
+            <div class="col" style="width: 203px;"></div>
+            <div class="col-xxl-10">
+                <div class="row" style="height: 765px;">
+                    <div class="col" style="height: 550px;">
+                        <h1>Фонды</h1>
+                        <table id="fond">
+                            <thead>
+                                <tr>
+                                    <th>Название</th>
+                                    <th>О фонде</th>
+                                    <th>Банк номер</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>  
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="col-xxl-6">
+        <div class="row" style="height: 850px; margin-top:10px">
+            <div class="col" style="width: 45%px;"></div>
+            <div class="col-xxl-10">
+                <div class="row" style="height: 765px;">
+                    <div class="col" style="height: 550px;">
+                        <h1>Компании</h1>
+                        <table id="company">
+                            <thead>
+                                <tr>
+                                    <th>Название</th>
+                                    <th>Город</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<footer class="text-center bgstylecolor footer" >
+    <div class="container text-white py-4 py-lg-5">
+        <ul class="list-inline">
+            <li class="list-inline-item me-4"><a class="link-light" href="#">Разработчики</a></li>
+            <li class="list-inline-item me-4"><a class="link-light" href="#">Компания</a></li>
+            <li class="list-inline-item"><a class="link-light" href="#">О программе</a></li>
+        </ul>
+        <p class="mb-0">Copyright © 2023 </p>
+    </div>
+</footer>
+
+<!-- Modal add new gbr -->
+<div class="modal fade" id="modalAdd1" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Добавление фонда</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col"  >
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <h5>Название
+                                <input type="text" id="pcn" class="registrpole"/>
+                            </h5>
+                            </div>
+                            <div class="row">
+                                <h5>О фонде
+                                <input type="text" id="number"class="registrpole"/>
+                            </h5>
+                            </div>
+                            <div class="row">
+                                <h5>Банк номер
+                                <input type="text" id="color" class="registrpole" />
+                            </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="registerbtn">Добавить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal add new gbr -->
+<div class="modal fade" id="modalAdd2" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Добавление фонда</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col"  >
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <h5>Название
+                                <input type="text" id="pcn" class="registrpole"/>
+                            </h5>
+                            </div>
+                            <div class="row">
+                                <h5>Город
+                                <input type="text" id="number"class="registrpole"/>
+                            </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="registerbtn">Добавить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

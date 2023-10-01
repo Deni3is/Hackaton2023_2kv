@@ -1,0 +1,8 @@
+.idea
+/app/app/tmp/metadata
+/docker/pgdata
+/app/tests
+/app/.phpunit.result.cache
+/app/composer.json
+/app/composer.lock
+/app/phpunit.xml
